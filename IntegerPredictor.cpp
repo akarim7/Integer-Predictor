@@ -396,7 +396,7 @@ vector<int> IntegerPredictor::predict(
     }
 
     cout << "#############################################" << endl;
-    cout << " Predicting Digit = " << p << "......." << endl;
+    cout << " Predicting Digit = " << predict_digit << "......." << endl;
     cout << "#############################################" << endl;
     vector<vector<vector<bool> > > test_data;
     vector<int> test_indices;
