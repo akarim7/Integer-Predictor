@@ -3,7 +3,7 @@
 #include <bitset>
 #include <numeric>
 #include "IntegerPredictor.h"
-#define MULTITHREADING_TESTING 1
+#define MULTITHREADING_TESTING 0
 #if MULTITHREADING_TESTING==1
 #define BOOST_THREAD_USE_LIB
 #include <boost/regex.hpp>
@@ -21,6 +21,7 @@ void find_prediction_for_all_digits(IntegerPredictor i_predictor,int digit,vecto
     predicted_matches_v=i_predictor.predict("", true, digit);
 
     *predicted_matches_vec=predicted_matches_v;
+
 }
 
 int main()
@@ -52,6 +53,7 @@ int main()
         z[q]->join();
         delete z[q];
     }
+
     #else
     for (int digit = 0; digit < i_predictor.training_index_vec.size(); digit++)
     {
@@ -59,7 +61,7 @@ int main()
             digit, &predicted_matches_vector[digit]);
     }
     #endif // MULTITHREADING
-
+    cout<<"finding accuracy " <<endl;
     // find accuracy for all digits
     vector<float> prediction_accuracy;
     float accuracy;

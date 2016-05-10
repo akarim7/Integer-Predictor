@@ -206,7 +206,7 @@ vector<IntegerPredictor::rule> IntegerPredictor::get_rules(int p, int N)
     IntegerPredictor::rule rule;
     vector<IntegerPredictor::rule> rules;
     vector<int> combinations = generate_combinations(N, p);
-    cout << "total combinations " << combinations.size() << endl;
+    cout << "total combinations " << combinations.size()/p << endl;
     // for p=1
     vector<vector<bool> > bool_combinations = binary_combinations(p);
     vector<int> single_combination();
@@ -376,7 +376,7 @@ vector<vector<double> > IntegerPredictor::train()
         = find_probability_vector(total_matches_count, &rules);
     cout << "prob_vector size " << probability_vector.size() << endl;
     cout<<"rules size " << rules.size()<< endl;
-    cout << rules.size()-probability_vector.size() << " rules were ignored as they had less than 30 matches" <<endl;
+    cout << total_matches_count[0].size()-rules.size() << " rules were ignored as they had less than 30 matches" <<endl;
     // print probability vector by uncommenting these lines
     //    for (int i=0;i<probability_vector.size();i++)
     //    {
