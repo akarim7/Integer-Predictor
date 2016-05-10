@@ -279,7 +279,6 @@ void IntegerPredictor::find_matches_count(vector<vector<bool> > record,
     }
 
     *matches_count_vector = temp_initialize_vector;
-    temp_initialize_vector.clear();
 }
 
 vector<vector<double> > IntegerPredictor::find_probability_vector(
@@ -309,12 +308,11 @@ vector<vector<double> > IntegerPredictor::find_probability_vector(
     for (int j = 0; j < total_matches_count[0].size(); j++)
     {
         for (int i = 0; i < total_matches_count.size(); i++)
+
+        if (total_matches_all_data[j] > 30)
         {
             probability_vector_rule.push_back(
                 (double)total_matches_count[i][j] / (double)total_matches_all_data[j]);
-        }
-        if (total_matches_all_data[j] > 30)
-        {
             probability_vector.push_back(probability_vector_rule);
             probability_vector_rule.clear();
         }
