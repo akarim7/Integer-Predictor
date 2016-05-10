@@ -15,7 +15,7 @@ email: akarim7uic@gmail.com
 #include <typeinfo>
 #include <iterator>
 // set this to 1 for multithreading
-#define MULTITHREADING 0
+#define MULTITHREADING 1
 #if MULTITHREADING == 1
 #define BOOST_THREAD_USE_LIB
 #include <boost/regex.hpp>
@@ -472,3 +472,6 @@ vector<int> IntegerPredictor::predict(
          << (float)counts_digits[predict_digit] / (float)test_data[predict_digit].size() << endl;
     return counts_digits;
 }
+
+
+
