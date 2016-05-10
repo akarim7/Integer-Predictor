@@ -249,7 +249,7 @@ int IntegerPredictor::check_rule(
                 }
         }
 
-        if count_flag:
+        if (count_flag):
             matches_count = matches_count + 1;
 
     }
