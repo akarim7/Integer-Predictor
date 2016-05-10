@@ -15,7 +15,7 @@ email: akarim7uic@gmail.com
 #include <typeinfo>
 #include <iterator>
 // set this to 1 for multithreading
-#define MULTITHREADING 1
+#define MULTITHREADING 0
 #if MULTITHREADING == 1
 #define BOOST_THREAD_USE_LIB
 #include <boost/regex.hpp>
@@ -308,11 +308,11 @@ vector<vector<double> > IntegerPredictor::find_probability_vector(
     for (int j = 0; j < total_matches_count[0].size(); j++)
     {
         for (int i = 0; i < total_matches_count.size(); i++)
-
-        if (!(total_matches_all_data[j] <30))
-        {
             probability_vector_rule.push_back(
                 (double)total_matches_count[i][j] / (double)total_matches_all_data[j]);
+        if (!(total_matches_all_data[j] <30))
+        {
+
             probability_vector.push_back(probability_vector_rule);
             probability_vector_rule.clear();
         }
@@ -375,6 +375,7 @@ vector<vector<double> > IntegerPredictor::train()
     vector<vector<double> > probability_vector
         = find_probability_vector(total_matches_count, &rules);
     cout << "prob_vector size " << probability_vector.size() << endl;
+    cout<<"rules size " << rules.size()<< endl;
     cout << rules.size()-probability_vector.size() << " rules were ignored as they had less than 30 matches" <<endl;
     // print probability vector by uncommenting these lines
     //    for (int i=0;i<probability_vector.size();i++)
