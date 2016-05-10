@@ -15,7 +15,7 @@ email: akarim7uic@gmail.com
 #include <typeinfo>
 #include <iterator>
 // set this to 1 for multithreading
-#define MULTITHREADING 0
+#define MULTITHREADING 1
 #if MULTITHREADING == 1
 #define BOOST_THREAD_USE_LIB
 #include <boost/regex.hpp>
@@ -309,7 +309,7 @@ vector<vector<double> > IntegerPredictor::find_probability_vector(
     {
         for (int i = 0; i < total_matches_count.size(); i++)
 
-        if (total_matches_all_data[j] <30)
+        if (!(total_matches_all_data[j] <30))
         {
             probability_vector_rule.push_back(
                 (double)total_matches_count[i][j] / (double)total_matches_all_data[j]);
