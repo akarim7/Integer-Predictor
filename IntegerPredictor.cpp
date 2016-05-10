@@ -229,21 +229,29 @@ int IntegerPredictor::check_rule(
     vector<vector<bool> > record, IntegerPredictor::rule rule_to_be_checked)
 {
     int matches_count = 0;
+    bool count_flag=true;
     // cout<<"checking rule with record size "<< record.size()<<endl;
     // for each row in record
     for (int i = 0; i < record.size(); i++)
     {
         // cout<<"record index " << i <<endl;
-
+        count_flag=true;
         vector<bool> record_row = record[i];
         // cout<<"record row size " <<record[i].size()<<endl;
         // for each pixel,value pair
         for (int j = 0; j < rule_to_be_checked.pixels.size(); j++)
         {
             // cout<<"rule number " << j <<endl;
-            if (record_row[rule_to_be_checked.pixels[j]] == rule_to_be_checked.values[j])
-                matches_count = matches_count + 1;
+            if (!(record_row[rule_to_be_checked.pixels[j]] == rule_to_be_checked.values[j]))
+                {
+                    count_flag=false;
+                    break;
+                }
         }
+
+        if count_flag:
+            matches_count = matches_count + 1;
+
     }
     return matches_count;
 }
