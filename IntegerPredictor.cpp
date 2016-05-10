@@ -377,6 +377,7 @@ vector<vector<double> > IntegerPredictor::train()
     vector<vector<double> > probability_vector
         = find_probability_vector(total_matches_count, &rules);
     cout << "prob_vector size " << probability_vector.size() << endl;
+    cout << rules.size()-probability_vector.size() << " rules were ignored as they had less than 30 matches" <<endl;
     // print probability vector by uncommenting these lines
     //    for (int i=0;i<probability_vector.size();i++)
     //    {
