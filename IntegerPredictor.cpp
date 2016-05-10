@@ -15,7 +15,7 @@ email: akarim7uic@gmail.com
 #include <typeinfo>
 #include <iterator>
 // set this to 1 for multithreading
-#define MULTITHREADING 1
+#define MULTITHREADING 0
 #if MULTITHREADING == 1
 #define BOOST_THREAD_USE_LIB
 #include <boost/regex.hpp>
@@ -249,7 +249,7 @@ int IntegerPredictor::check_rule(
                 }
         }
 
-        if (count_flag):
+        if (count_flag)
             matches_count = matches_count + 1;
 
     }
